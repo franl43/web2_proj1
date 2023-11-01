@@ -1,0 +1,55 @@
+html
+    head 
+        title web2 projekt 1
+    body 
+        a(href='/', title='Home') Home
+        h2 Matches
+        br
+        table 
+            tr
+                th Round
+                th First Team 
+                th Second Team
+                th Result
+                th Time
+                if currentIsCreator
+                    th
+            each match in matches
+                tr 
+                    td= match.round
+                    td= match.firstTeamName
+                    td= match.secondTeamName
+                    if match.firstTeamScore >= 0 && match.secondTeamScore >= 0
+                        td= match.firstTeamScore+" - "+match.secondTeamScore
+                        td= match.matchTime
+                        if currentIsCreator
+                            td
+                                a(href="/match?id="+match.id, title='Edit') Edit score
+                    else 
+                        td -
+                        td= match.matchTime
+                        if currentIsCreator
+                            td
+                                a(href="/match?id="+match.id, title='Add') Add score
+        br
+        h2 Table 
+        br
+        table 
+            tr
+                th Team
+                th Wins
+                th Draws
+                th Loses
+                th Points
+            each team in table
+                tr 
+                    td= team.teamName
+                    td= team.wins
+                    td= team.draws
+                    td= team.loses 
+                    td= team.points
+        if currentIsCreator
+            br
+            h2 Share 
+            br
+            a(href=url, title="share") https://localhost:8080#{url}

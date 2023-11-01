@@ -1,0 +1,29 @@
+html
+    head 
+        title web2 projekt 1
+    body 
+        a(href='/', title='Home') Home
+        table 
+            tr 
+                th #{match.firstTeamName}
+                th -
+                th #{match.secondTeamName}
+                th
+            tr 
+                form(action="/update-score?id="+match.id, method="post")
+                    if match.firstTeamScore >= 0 && match.secondTeamScore >= 0
+                        td 
+                            input(type="number", min="0", name="fts", value=match.firstTeamScore)
+                        td
+                        td
+                            input(type="number", min="0", name="sts", value=match.secondTeamScore)
+                        td
+                            input(type="submit")
+                    else 
+                        td 
+                            input(type="number", min="0", name="fts", value="0")
+                        td
+                        td
+                            input(type="number", min="0", name="sts", value="0")
+                        td
+                            input(type="submit")

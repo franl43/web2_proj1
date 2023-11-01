@@ -1,0 +1,20 @@
+html
+    head 
+        title web2 projekt 1
+    body 
+        a(href='/', title='Home') Home
+        table 
+            tr 
+                th Name 
+                th Win pts.
+                th Draw pts.
+                th Lose pts.
+                th Matches
+            each comp in comps
+                tr 
+                    td= comp.name
+                    td= comp.winPoints
+                    td= comp.drawPoints
+                    td= comp.losePoints
+                    td
+                        a(href='/comp?id='+comp.id, title='View matches') View matches

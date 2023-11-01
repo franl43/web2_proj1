@@ -1,0 +1,13 @@
+html
+    head 
+        title web2 projekt 1
+    body 
+        ul 
+            li: a(href='/', title='Home') Home            
+            if username
+                li: a(href='/create', title='Create') Create
+                li: a(href='/my-comps', title='My Competitions') My Competitions
+                li: a(href='/logout', title='Logout') Logout
+            else
+                li: a(href='/login', title='Login') Login
+                li: a(href='/sign-up', title='Sign up') Sign up

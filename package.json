@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "npm run clean; tsc; npm run copy-views; npm run copy-views",
+    "clean": "rm -rf dist",
+    "copy-views": "cp -r src/views/ dist/",        
+    "start": "node dist/webapp1.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "pg": "^8.11.3",
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.5.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.7",
+    "@types/node": "^20.8.6",
+    "@types/express": "^4.17.14"
+  }
+}

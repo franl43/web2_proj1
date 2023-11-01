@@ -1,0 +1,24 @@
+html 
+    head 
+        title web2 projekt 1
+    body 
+        a(href='/', title='Home') Home
+        br
+        a(href='/my-comps', title='My Competitions') My Competitions
+        br
+        
+        form(action="/insert-comp", method="post")
+            label(for="cname") Competition name:
+            br
+            input(type="text", name="cname", required)
+            br
+            label(for="teams") Competitors:
+            br
+            textarea(name="teams", cols="30", rows="8", required) 
+            br
+            label(for="points", id="points") win/draw/lose points:
+            br
+            input(type="text", name="points", required, pattern="-?[0-9.]+\/-?[0-9.]+\/-?[0-9.]+")
+            br
+            input(type="submit")
+            input(type="reset")
