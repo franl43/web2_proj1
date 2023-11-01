@@ -246,7 +246,8 @@ app.get('/my-comps', requiresAuth(), function (req, res) {
 
 app.get('/comp', requiresAuth(), function (req, res) {
   const currentUser : string = req.oidc.user?.sub
-  const url : string = req.originalUrl  
+  const fullUrl : string = req.protocol + '://' + req.get('host') + req.originalUrl
+  const url: string = req.originalUrl
   const compId : number = parseInt(req.url.split('?')[1].split('=')[1]);
   const matches : Match[] = [];
   const table : CompetitionTeam[] = [];
@@ -259,7 +260,7 @@ app.get('/comp', requiresAuth(), function (req, res) {
     .then(p => p.forEach(m => matches.push(m)))
     .then(p => getCompetitionTeamsById(compId))
       .then(p => p.forEach(t => table.push(t)))
-    .then(p => res.render('comp', {matches, table, currentIsCreator, url}));
+    .then(p => res.render('comp', {matches, table, currentIsCreator, fullUrl, url}));
 });
 
 app.get('/match', requiresAuth(), function (req, res) {       
